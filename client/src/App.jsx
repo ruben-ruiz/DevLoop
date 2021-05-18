@@ -7,18 +7,33 @@ import axios from 'axios';
 
 const App = () => {
   const [githubInfo, setGithubInfo] = useState('');
+  const [codeWarsInfo, setCodeWarsInfo] = useState('');
 
-  useEffect(() => {
+  const getCodeWars = () => {
+    axios.get(`https://www.codewars.com/api/v1/users/ruben-ruiz`)
+    .then(response => setCodeWarsInfo(response.data))
+    .catch(err => console.log(err))
+  }
+
+  const getGithub = () => {
     axios.get(`https://api.github.com/users/ruben-ruiz`)
     .then(response => setGithubInfo(response.data))
     .catch(err => console.log(err))
-  }, [githubInfo]);
+  }
+
+  useEffect(() => {
+    getGithub();
+  }, []);
+
+  useEffect(() => {
+    getCodeWars();
+  }, [])
 
   return (
     <div className="app-container">
       <Navbar />
       <Sidebar githubInfo={githubInfo}/>
-      <Content />
+      <Content codeWarsInfo={codeWarsInfo}/>
       <Footer />
     </div>
   )
