@@ -1,0 +1,44 @@
+/* BASE */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* PAGE LAYOUT */
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "navbar navbar navbar"
+    "sidebar content content"
+    "sidebar content content"
+    "footer content content";
+}
+
+.content {
+  grid-area: content;
+}
+.navbar {
+  grid-area: navbar;
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.footer {
+  grid-area: footer;
+}
