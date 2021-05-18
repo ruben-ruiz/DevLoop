@@ -1,5 +1,6 @@
 {
   "name": "devloop",
+  "homepage": "git@github.com:ruben-ruiz/DevLoop.git",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
